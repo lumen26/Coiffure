@@ -23,14 +23,11 @@
 
 <body>
 
-    <header class="row justify-content-between">
-
-        <div class="col-md-5">
-            <img src="img/logo.png" alt="abidjanaise_logo" id="LOGO">
-        </div>
-
-        <nav class="col-md-5">
-
+<nav id="nav-set">
+            
+              <img src="img/logo.png" alt="abidjanaise_logo" id="LOGO">
+           
+        <div class="nav-button">
             <ul class="row">
                 <li class="col-3">
                     <a href="#">Accueil</a>
@@ -48,8 +45,13 @@
                     <a href="#Contact">Contact</a>
                 </li>
             </ul>
+        </div>
 
         </nav>
+    <header class="row justify-content-between">
+
+
+       
 
     </header>
 

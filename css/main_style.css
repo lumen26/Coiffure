@@ -1,11 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration-line: none;
+    text-decoration: none;
+    
+  }
+
+
 header{
-    background-color: #eea814;
-    display: inline-block;
+
+    background-color: #31302e;
+    display: block;
+    width: 100vw;
+    height: 70vh;
 }
 
-nav, header div{
-    height: auto;
-}
+
 
 nav li a{
     color: white;
@@ -17,7 +28,35 @@ nav ul{
 }
 
 #LOGO{
-    width: 400px;
+    width: 300px;
     height: auto;
 }
 
+
+#nav-set{
+    position: absolute;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: #eea814;
+    width: 100%;
+    height: 60px;
+}
+
+
+#nav-set a{
+    color: #fff;
+}
+
+
+#nav-set .nav-button ul{
+    display: flex;
+    
+}
+
+
+.navbar .boutton-nav ul li{
+    margin: 0 25px;
+}
