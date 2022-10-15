@@ -1,0 +1,23 @@
+header{
+    background-color: #eea814;
+    display: inline-block;
+}
+
+nav, header div{
+    height: auto;
+}
+
+nav li a{
+    color: white;
+}
+
+nav ul{
+    list-style-type: none;
+    display: inline-block;
+}
+
+#LOGO{
+    width: 400px;
+    height: auto;
+}
+
