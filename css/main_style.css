@@ -60,3 +60,45 @@ nav ul{
 .navbar .boutton-nav ul li{
     margin: 0 25px;
 }
+
+.container {
+    width: 20%;
+    margin: 10px auto;
+}
+
+.carousel {
+    border: 2px solid #ccc;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    height: 100%;
+    display: flex;
+    width: 400%;
+    transition: all 0.3s;
+    border: 1px blue solid;
+}
+
+.slider section {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls .arrow {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
