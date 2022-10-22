@@ -8,76 +8,119 @@
     <title>ABIDJANAISE Coiffure</title>
 
     <link rel="stylesheet" href="css/main_style.css">
+    
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <script src="JavaScrit.js"></script>
-
-    <script type="text/javascript">
-        const slider = document.querySelector('.slider');
-
-        const leftArrow = document.querySelector('.left');
-        const rightArrow = document.querySelector('.right');
-
-        var sectionIndex = 0;
-
-        leftArrow.addEventListener('click', function () {
-            sectionIndex = (sectionIndex > 0) ? sectionIndex - 1 : 0;
-            slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
-        });
-
-        rightArrow.addEventListener('click', function () {
-            sectionIndex = (sectionIndex < 3) ? sectionIndex + 1 : 3;
-            slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
-        });
-
-
-    </script>
+    <script type="text/javascript" src="JavaScript.js"></script>
 
     <style>
+        .slider {
+            width: 800px;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-.container {
-    width: 20%;
-    margin: 10px auto;
-}
+        .slides {
+            width: 500%;
+            height: 500px;
+            display: flex;
+        }
 
-.carousel {
-    border: 2px solid #ccc;
-    height: 400px;
-    position: relative;
-    overflow: hidden;
-}
+        .slides input {
+            display: none;
+        }
 
-.slider {
-    height: 100%;
-    display: flex;
-    width: 400%;
-    transition: all 0.3s;
-    border: 1px blue solid;
-}
+        .slide {
+            width: 20%;
+            transition: 2s;
+        }
 
-.slider section {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .slide p {
+            width: 800px;
+            font-size: 150%;
+            text-align: center;
+            position: relative;
+            top: 30%;
+        }
 
-.controls .arrow {
-    position: absolute;
-    top: 50%;
-    cursor: pointer;
-}
+        .navigation-manual {
+            position: absolute;
+            width: 800px;
+            margin-top: -40px;
+            display: flex;
+            justify-content: center;
+        }
 
-.arrow.left {
-    left: 10px;
-}
+        .manual-btn {
+            border: 2px solid #40d3dc;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+        }
 
-.arrow.right {
-    right: 10px;
-}
-</style>
+        .manual-btn:not(:last-child) {
+            margin-right: 40px;
+        }
+
+        .manual-btn:hover {
+            background-color: #40d3dc;
+        }
+
+        #radio1:checked~.first {
+            margin-left: 0;
+        }
+
+        #radio2:checked~.first {
+            margin-left: -20%;
+        }
+
+        #radio3:checked~.first {
+            margin-left: -40%;
+        }
+
+        #radio4:checked~.first {
+            margin-left: -60%;
+        }
+
+        .navigation-auto {
+            position: absolute;
+            display: flex;
+            width: 800px;
+            margin-top: 460px;
+            justify-content: center;
+        }
+
+        .navigation-auto div {
+            border: 2px solid #40d3dc;
+            padding: 5px;
+            border-radius: 10px;
+            transition: 1s;
+        }
+
+        .navigation-auto div:not(:last-child) {
+            margin-right: 40px;
+        }
+
+        #radio1:checked~.navigation-auto .auto-btn1 {
+            background: #40d3dc;
+        }
+
+        #radio2:checked~.navigation-auto .auto-btn2 {
+            background: #40d3dc;
+        }
+
+        #radio3:checked~.navigation-auto .auto-btn3 {
+            background: #40d3dc;
+        }
+
+        #radio4:checked~.navigation-auto .auto-btn4 {
+            background: #40d3dc;
+        }
+    </style>
 
 </head>
 
@@ -177,30 +220,58 @@
 
     </section>
 
-    <div id="Actualités" class="container">
-       
-       <div class="carousel">
+    <section id="Actualités" style="display: flex; justify-content: center; align-items: center; margin: 30px;">
+        <div class="slider">
 
-           <div class="slider">
+            <div class="slides">
 
-               <section>lorem ipsum 1</section>
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
 
-               <section>lorem ipsum 2</section>
+                <div class="slide first">
+                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam quis iusto, doloremque cupiditate
+                        totam est eius officiis, perferendis harum aperiam odit iure officia unde perspiciatis earum numquam
+                        aspernatur nobis laudantium.</p>
+                </div>
 
-               <section>lorem ipsum 3</section>
+                <div class="slide">
+                    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi debitis ipsa optio maiores porro
+                        maxime dolorum sequi animi consequuntur, modi mollitia incidunt deleniti unde possimus, assumenda
+                        enim ea magni nemo.</p>
+                </div>
 
-               <section>lorem ipsum 4</section>
+                <div class="slide">
+                    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi debitis ipsa optio maiores porro
+                        maxime dolorum sequi animi consequuntur, modi mollitia incidunt deleniti unde possimus, assumenda
+                        enim ea magni nemo.</p>
+                </div>
+
+                <div class="slide">
+                    <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi debitis ipsa optio maiores porro
+                        maxime dolorum sequi animi consequuntur, modi mollitia incidunt deleniti unde possimus, assumenda
+                        enim ea magni nemo.</p>
+                </div>
+
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
 
             </div>
 
-           <div class="controls">
-               <span class="arrow left carousel-control-prev-icon">left</span>
-               <span class="arrow right carousel-control-next-icon">right</span>
-           </div>
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
 
-       </div>
-
-   </div>
+        </div>
+    </section>
 
     <section id="Contact">
         <p> N'hésitez surtout pas à nous contacter </p>
@@ -221,10 +292,9 @@
         </a>
     </section>
 
-    <section id="Avis" style="background-color: orange;">
+    <section id="Avis">
 
-
-
+        
     </section>
 
     <section id="Horaires">
@@ -235,14 +305,14 @@
     </section>
 
     <section id="Map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126885.37650423532!2d2.326137673188036!3d6.372297877913875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102354e509f894f7%3A0xc8fde921f89849f6!2sCotonou!5e0!3m2!1sfr!2sbj!4v1665985819260!5m2!1sfr!2sbj" style="border:0; width:100%; height:600px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126885.37650423532!2d2.326137673188036!3d6.372297877913875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102354e509f894f7%3A0xc8fde921f89849f6!2sCotonou!5e0!3m2!1sfr!2sbj!4v1665985819260!5m2!1sfr!2sbj" style="border:0; width:100%; height:600px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe> -->
     </section>
 
     <?php
     include("includes/footer.php");
     ?>
-    
+
 </body>
 
 </html>

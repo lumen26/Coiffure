@@ -1,16 +1,12 @@
-const slider = document.querySelector('.slider');
+var counter = 1;
 
-const leftArrow = document.querySelector('.left');
-const rightArrow = document.querySelector('.right');
+setInterval(
+    function () {
+        document.getElementById('radio' + counter).checked = true;
+        counter++;
+        if (counter > 4) {
+            counter = 1;
+        }
+    }, 5000
+);
 
-var sectionIndex = 0;
-
-leftArrow.addEventListener('click', function () {
-    sectionIndex = (sectionIndex > 0) ? sectionIndex - 1 : 0;
-    slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
-});
-
-rightArrow.addEventListener('click', function () {
-    sectionIndex = (sectionIndex < 3) ? sectionIndex + 1 : 3;
-    slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
-});
