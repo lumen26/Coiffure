@@ -10,6 +10,10 @@ switch ($router) {
     case 'produit':
         include "produit_page.php";
         break;
+    
+    case 'services' :
+        include "services_page.php";
+        break;
 
     default:
         include "welcome_page.php";
