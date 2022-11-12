@@ -14,7 +14,17 @@ switch ($router) {
     case 'services' :
         include "services_page.php";
         break;
+    
+    case 'contact' :
+        include "contact_page.php";
+        break;
+    case 'login' :
+        include "login_page.php";
+        break;
 
+    case 'register' :
+        include "register_page.php";
+        break;
     default:
         include "welcome_page.php";
         break;
