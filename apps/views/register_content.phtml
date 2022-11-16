@@ -19,62 +19,71 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-
-                <form class="mx-1 mx-md-4" action="register_page.php" method="$_POST">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Enregistrez vous </p>
+                <div class="p-5">
+                  <?php if (isset($_SESSION['flash_data']) && $_SESSION['flash_data'] == "success") : ?>
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                      <?= (isset($_SESSION["message"])) ? $_SESSION["message"] : ""; ?>
+                    </div>
+                  <?php elseif (isset($_SESSION['flash_data']) && $_SESSION['flash_data'] == "error") : ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <?= (isset($_SESSION["message"])) ? $_SESSION["message"] : ""; ?>
+                    </div>
+                  <?php endif; ?>
+                </div>
+                <form class="mx-1 mx-md-4" action="signup" method="POST">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
-                      <label class="form-label" name="name" for="form3Example1c">Your </label>
+                      <input type="text" id="form3Example1c" class="form-control" name="name" />
+                      <label class="form-label" name="name" for="form3Example1c">Votre nom</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" />
-                      <label class="form-label"name="email" for="form3Example3c">Your Email</label>
+                      <input type="email" id="form3Example3c" class="form-control" name="email" />
+                      <label class="form-label" name="email" for="form3Example3c">Votre email</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" />
-                      <label class="form-label" name="password" for="form3Example4c">Password</label>
+                      <input type="password" id="form3Example4c" class="form-control" name="password" />
+                      <label class="form-label" name="password" for="form3Example4c">Mot de passe</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" />
-                      <label class="form-label" name="cpassword" for="form3Example4cd">Repeat your password</label>
+                      <input type="password" id="form3Example4cd" class="form-control" name="cpassword" />
+                      <label class="form-label" name="cpassword" for="form3Example4cd">Confirmez mot de passe</label>
                     </div>
                   </div>
 
-                  <div class="form-check d-flex justify-content-center mb-5">
+                  <!-- <div class="form-check d-flex justify-content-center mb-5">
                     <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
                     <label class="form-check-label" for="form2Example3">
                       I agree all statements in <a href="#!">Terms of service</a>
                     </label>
-                  </div>
+                  </div> -->
 
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" name="signup" class="btn btn-primary btn-lg">Register</button>
-                  </div>
+                  <button type="submit" name="signup" class="btn btn-warning btn-user btn-block text-white">
+                    S'enregistrer
+                  </button>
 
                 </form>
 
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  class="img-fluid" alt="Sample image">
+                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Flogin&psig=AOvVaw1qV_TLF8TBrQz2oypAji-s&ust=1668696373032000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOjDgcv4svsCFQAAAAAdAAAAABAE" class="img-fluid" alt="Sample image">
 
-                 
+
 
               </div>
             </div>
@@ -82,8 +91,13 @@
         </div>
       </div>
     </div>
+    <?php
+    if (isset($_SESSION['flash_data'])) {
+      unset($_SESSION["flash_data"]);
+      unset($_SESSION["message"]);
+    }
+    ?>
   </div>
 
-  
-</section>
 
+</section>

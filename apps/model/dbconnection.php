@@ -22,11 +22,11 @@ class dbConnect
         }
     }
 
-    public function addUser($name, $surname, $password, $email, $sexe, $phone, $creationDate, $imgProfil)
+    public function addUser($name,  $password, $email)
     {
-        $sql = "INSERT INTO `users` (`name`, `surname`, `email`,`phone`, `sexe`, `password`, `creationDate`, `imgProfil`) VALUES (:name, :surname, :email, :phone, :sexe, :password, :creationDate, :imgProfil)";
+        $sql = "INSERT INTO `users` (`name`, `email`,`password`) VALUES (:name, :email, :password)";
         $req = $this->conn->prepare($sql);
-        $exec = $req->execute(array(":name" => $name, ":surname" => $surname, ":email" => $email, ":phone" => $phone, ":sexe" => $sexe, ":password" => $password, ":creationDate" => $creationDate, ":imgProfil" => $imgProfil));
+        $exec = $req->execute(array(":name" => $name, ":email" => $email, ":password" => $password));
         if ($exec) {
             return true;
         }

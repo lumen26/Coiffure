@@ -1,0 +1,30 @@
+/* color variables */
+
+:root{
+    --primary : green;
+    --secondary : orange;
+}
+
+.col-img{
+    background-image: url(../images/single-img-four.jpg) ;
+    background-position :center;
+    background-size :cover;
+    min-height : 600px;
+}
+
+.icon{
+    width : 54px;
+    height : 54px;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255) !important;
+    color : orange !important;
+    font-size : 32px;
+    border-radius :100px;
+    flex: none;
+}
+
+/* .icon:hover{
+    transform: translateY(5px) all 0.5s ease !important;
+} */

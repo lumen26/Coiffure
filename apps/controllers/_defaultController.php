@@ -10,21 +10,38 @@ switch ($router) {
     case 'produit':
         include "produit_page.php";
         break;
-    
-    case 'services' :
+
+    case 'services':
         include "services_page.php";
         break;
-    
-    case 'contact' :
+
+    case 'contact':
         include "contact_page.php";
         break;
-    case 'login' :
+    case 'login':
         include "login_page.php";
         break;
 
-    case 'register' :
+    case 'register':
         include "register_page.php";
         break;
+
+    case 'signup':
+        include "register.php";
+        break;
+
+    case 'signin':
+        include "login.php";
+        break;
+
+    case 'forget':
+        include "forget.php";
+        break;
+
+    case 'logout':
+        include "logout.php";
+        break;
+
     default:
         include "welcome_page.php";
         break;

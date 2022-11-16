@@ -8,7 +8,7 @@
     <meta name="description" content="Fondex – Business &amp; Finance Consulting HTML Template" />
     <meta name="author" content="https://www.themetechmount.com/" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title><?=$title;?></title>
+    <title><?= $title; ?></title>
 
     <!-- favicon icon -->
     <link rel="shortcut icon" href="./assets/images/favicon.png" />
@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="./assets/css/produits.css">
 
     <!-- services -->
-    
+
     <link rel="stylesheet" href="./assets/css/services.css">
 
 </head>
@@ -75,9 +75,9 @@
                                 <div class="site-branding">
                                     <a class="home-link" href="index.html" title="Fondex" rel="home">
                                         <img id="logo-img" class="img-center" src="./assets/images/logo.png" alt="logo-img">
-                                        
+
                                     </a>
-                                    
+
                                 </div><!-- site-branding end -->
                                 <!--site-navigation -->
                                 <div id="site-navigation" class="site-navigation">
@@ -95,7 +95,7 @@
                                                 <a href="home">Accueil</a>
                                             </li>
                                             <li>
-                                                <a href="about">Produits</a>
+                                                <a href="produit">Produits</a>
                                             </li>
                                             <li>
                                                 <a href="services">Services</a>
@@ -103,8 +103,18 @@
                                             <li>
                                                 <a href="contact">Contact</a>
                                             </li>
-                                            <li>
-                                                <a href="register">Se connecter</a>
+                                            <li class="nav-item">
+                                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                                                    <i class="fa-solid fa-user"></i>
+                                                </a>
+                                                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                                                    <div class="bg-white py-2 collapse-inner rounded">
+                                                        <h6 class="collapse-header">Users board</h6>
+                                                        <a class="collapse-item" href="login">Login</a>
+                                                        <a class="collapse-item" href="register">Register</a>
+                                                        <a class="collapse-item" href="logout">Déconnexion</a>
+                                                    </div>
+                                                </div>
                                             </li>
                                         </ul>
                                     </nav>
