@@ -1,0 +1,71 @@
+<!-- link lulux ! -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"></script>
+
+<!-- link lulux !  END -->
+<?php
+    $model = new dbConnect('root', '', 'coiffure');
+    if ((!isset($_POST["upd_id"])) or (empty($_POST["upd_id"]))){
+      $_SESSION["p_preupdate_error"] = "<div class='alert alert-danger' role='alert'>Aucun produit sélectionné</div>";
+      header("Location:" . $_SERVER["HTTP_REFERER"]);
+    }
+    else{
+      $u_product_id = $_POST["upd_id"];
+      $u_product = $model->getProduct($u_product_id);
+    }
+?>
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div>  
+              <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Modifier un produit</p>
+              <div class='alert alert-warning' role='alert'>Veuillez ne pas changer les champs que vous ne voulez pas modifier</div>
+              <form class="mx-1 mx-md-4" action="updateproduct" method="POST" enctype="multipart/form-data">
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" name="p_name_f" for="form3Example1c">nom du produit</label>
+                    <input type="text" id="form3Example1c" class="form-control" name="p_name_f" value="<?php echo $u_product->p_nom; ?>">
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" name="p_description_f" for="form3Example4c">Description du produit</label>
+                    <textarea name="p_description_f" class="form-control" id="form3Example4c" cols="30" rows="4"><?php echo $u_product->p_description; ?></textarea>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" name="p_image_f" for="form3Example4cd">Sélectionnez une image</label>  
+                    <input type="file" id="form3Example4cd" class="form-control" name="p_image_f"/>  
+                    <p>Note: Seuls les formats .jpg, .jpeg, .gif, .png sont autorisés jusqu'à une taille maximale de 20 Mo.</p>
+                    <div class='alert alert-warning' role='alert'>Rappel: Ne choisissez aucune image si vous ne voulez pas en changer</div>
+                  </div>
+                </div>
+
+                <input type="hidden" name="p_id_f" value="<?php echo $u_product->p_id; ?>">
+                <input type="hidden" name="p_image_old" value="<?php echo $u_product->p_image; ?>">
+
+                <button type="submit" name="update_product" class="btn btn-warning btn-user btn-block text-white">
+                  Enregistrer
+                </button>
+                <a href="admin" class="btn btn-danger btn-user btn-block text-white">Retour</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</section>

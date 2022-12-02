@@ -1,0 +1,10 @@
+<div class='card'>
+    <p class='h1 fw_bold'>Confirmer la suppression ?</p>
+    <form name='d_form' action='deleteproduct' method='POST'>
+        <?php if(isset($_POST['del_id'])){echo ("<input type='hidden' name='d_product' value='".($_POST['del_id'])."'/>");} ?>
+        <button type='submit' id='delete_product' class='btn btn-danger' style='margin-right:1em'>
+            Supprimer
+        </button>
+        <a class='btn btn-warning' href='admin'>Annuler</a>
+    </form>
+</div>
