@@ -43,7 +43,7 @@ if (isset($_POST["signin"])) {
             } else {
                 $_SESSION['user'] = $verifyUser;
                 if ($_SESSION['user']['0']['role'] == 1) {
-                    header("Location:home");
+                    header("Location: admin");
                     exit;
                 } else {
                     unset($_SESSION['user']);

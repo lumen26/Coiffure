@@ -18,6 +18,7 @@ switch ($router) {
     case 'contact':
         include "contact_page.php";
         break;
+        
     case 'login':
         include "login_page.php";
         break;
@@ -40,6 +41,34 @@ switch ($router) {
 
     case 'logout':
         include "logout.php";
+        break;
+        
+    case 'addproduct':
+        include "add_product.php";
+        break;
+
+    case 'confirmdelete':
+        include "confirm_delete_page.php";
+        break;
+
+    case 'deleteproduct':
+        include "delete_product.php";
+        break;
+
+    case 'updateproduct':
+        include "update_product.php";
+        break;
+
+    case 'p_update':
+        include "p_update_page.php";
+        break;
+        
+    case 'admin':
+        include "admin_page.php";
+        break;
+
+    case 'p_register':
+        include "p_register_page.php";
         break;
 
     default:

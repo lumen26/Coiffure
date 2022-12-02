@@ -14,6 +14,6 @@ $model = new dbConnect('root', '', 'coiffure');
     // echo '<pre>',print_r($_SESSION,1),'</pre>';
     // die;
     // Redirect to welcome page
-    header("location: welcome");
+    header("location: home");
     exit;
 // }
