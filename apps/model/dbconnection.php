@@ -133,6 +133,22 @@ class dbConnect
         return 0;
     }
 
+    public function productCarouselIndicators(){
+        $res = $this->conn->query('SELECT p_id,p_nom,p_description,p_image FROM produits');
+        $count_ = 0;
+        $slide_ = 0;
+        while ($row = $res->fetch(PDO::FETCH_OBJ)){
+            if ($count_ == 0){
+                echo ("<li data-target='#carouselFourColumn' data-slide-to='0' class='active'></li>");
+            }
+            elseif ($count_ % 3 == 0){
+                $slide_++;
+                echo ("<li data-target='#carouselFourColumn' data-slide-to='".$slide_."'></li>");
+            }
+            $count_++;
+        }
+    }
+
     public function productCarousel()
     {
         $res = $this->conn->query('SELECT p_id,p_nom,p_description,p_image FROM produits');
@@ -143,34 +159,54 @@ class dbConnect
                 echo ("<div class='carousel-item active'>");
                 echo ("<div class='row'>");
             }
-            elseif ($count_ % 4 == 0)
+            elseif ($count_ % 3 == 0)
             {
                 echo("<div class='carousel-item'>");
                 echo("<div class='row'>");
             }
   
-            echo ("<div class='col-xl-3 p-1'>");				
+            echo ("<div class='col-xl-4 p-1'>");				
                 echo ("<div class='card'>");
                     echo ("<img src='assets/images/produits/".$row->p_image."' class='w-100'>");
                     echo ("<div class='card-body'>");
                         echo ("<h5 class='card-title'>".$row->p_nom."</h5>");
                         echo ("<p class='card-text'>".$row->p_description."</p>");
-                        echo ("<a href='#' class='btn btn-outline-success w-100'>Show</a>");
+                        echo ("<button data-toggle='modal' href='#modal".($count_ + 1)."' class='btn btn-outline-success w-100'>Afficher</button>");                        
                     echo ("</div>");
                 echo ("</div>");
             echo ("</div>");
-  
-            if (!($count_ == 0) and ($count_ % 4 == 0))
+
+            $count_++;
+            if ($count_ % 3 == 0)
             {
                 echo("</div>");
                 echo("</div>");
-            }
-
-            $count_ = $count_ + 1;
+            }         
         }
-        if ($count_ < 4){
+        if ($count_ % 3 !== 0){
             echo("</div>");
             echo("</div>");
+        }
+    }
+
+    public function productModal(){
+        $res = $this->conn->query('SELECT p_id,p_nom,p_description,p_image FROM produits');
+        $count_ = 0;
+        while ($row = $res->fetch(PDO::FETCH_OBJ)){
+            echo ("<div class='modal fade' id='modal".($count_ + 1)."' data-backdrop='false'>");
+                echo ("<div class='modal-dialog modal-lg'>");
+                    echo ("<div class='modal-content'>");
+                        echo ("<div class='modal-body'>");
+                            echo ("<div style='padding: 1em'>");
+                                echo ("<button type='button' class='close' data-dismiss='modal'>x</button>");
+                                echo ("<h4 class='modal-title'>".$row->p_nom."</h4>");
+                            echo ("</div>");
+                            echo ("<img src='assets/images/produits/".$row->p_image."' class='w-100'>");
+                        echo ("</div>");
+                    echo ("</div>");
+                echo ("</div>");
+            echo ("</div>");
+            $count_++;
         }
     }
 }
