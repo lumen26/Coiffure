@@ -91,7 +91,8 @@
                                     </div>
                                     <nav id="menu" class="menu">
                                         <ul class="dropdown">
-                                            <li class="active">
+                                            
+                                            <li class='active'>
                                                 <a href="home">Accueil</a>
                                             </li>
                                             <li>
@@ -105,14 +106,23 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                                                    <i class="fa-solid fa-user"></i>
+                                                    <i class="fa-solid fa-user" style="color: black;"></i>
                                                 </a>
                                                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                                                     <div class="bg-white py-2 collapse-inner rounded">
                                                         <h6 class="collapse-header">Users board</h6>
-                                                        <a class="collapse-item" href="login">Login</a>
-                                                        <a class="collapse-item" href="register">Register</a>
-                                                        <a class="collapse-item" href="logout">Déconnexion</a>
+                                                        <?php 
+                                                        if (!isset($_SESSION["user"])){
+                                                            echo ("<a class='collapse-item' style='color: black; padding: 0.5em;' href='login'>Login</a>");
+                                                            echo ("<a class='collapse-item' style='color: black; padding: 0.5em;' href='register'>Register</a>");
+                                                        }
+                                                        else {
+                                                            if ($_SESSION['user']['0']['role'] == 1){
+                                                                echo ("<a class='collapse-item' style='color: black; padding: 0.5em;' href='admin'>Admin</a>");
+                                                            }
+                                                            echo ("<a class='collapse-item' style='color: black; padding: 0.5em;' href='logout'>Déconnexion</a>");
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </li>
