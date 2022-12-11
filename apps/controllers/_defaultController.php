@@ -35,10 +35,6 @@ switch ($router) {
         include "login.php";
         break;
 
-    case 'forget':
-        include "forget.php";
-        break;
-
     case 'logout':
         include "logout.php";
         break;
